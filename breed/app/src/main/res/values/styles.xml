@@ -1,0 +1,85 @@
+<resources>
+
+    !-- Base application theme. -->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_text</item>
+        <item name="android:windowBackground">@color/color_window_background</item>
+    </style>
+
+    <!-- 启动页样式 -->
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- 引导页样式 -->
+    <style name="welcomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--等待对话框 start-->
+    <style name="LoadingDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!--等待对话框 end-->
+
+    <!--对话框样式-->
+    <style name="mdialog" parent="Theme.AppCompat.Dialog">
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--没有标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--背景昏暗-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="CommonTabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="android:background">@color/white</item>
+        <item name="tabIndicatorColor">@color/color_10AF4F</item>
+        <item name="tabIndicatorHeight">@dimen/dp_3</item>
+        <item name="tabBackground">@color/transparent</item>
+        <!--<item name="tabTextAppearance">@style/TabLayoutStyle</item>-->
+        <item name="tabSelectedTextColor">@color/color_10AF4F</item>
+        <item name="tabTextColor">@color/color_99</item>
+    </style>
+
+    <style name="TabLayoutStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!--动画 start-->
+    <style name="CustomAnim">
+        <item name="android:windowEnterAnimation">@anim/custom_push_down_in</item>
+        <item name="android:windowExitAnimation">@anim/custom_push_up_out</item>
+    </style>
+
+    <style name="DarkAnimation">
+        <item name="android:windowEnterAnimation">@anim/dark_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/dark_fade_out</item>
+    </style>
+
+    <style name="Popup_Animation_slide" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
+    </style>
+    <!--动画 end-->
+
+</resources>

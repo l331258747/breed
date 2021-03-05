@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">种养殖</string>
+
+    <string name="str_tab_breed">种植</string>
+    <string name="str_tab_plant">养殖</string>
+    <string name="str_tab_mall">商城</string>
+    <string name="str_tab_post">贴吧</string>
+    <string name="str_tab_my">我的</string>
+
+
+    <string name="verify"><Data><![CDATA[重新发送<font color="#dd0000">%ds</font>]]></Data></string>
+
+</resources>
