@@ -112,7 +112,7 @@ public class SplashActivity extends BaseActivity {
                     // so far we do not use OnRequestPermissionsResultCallback
                 }
             }
-        }, 500);
+        }, 2000);
     }
 
     private boolean checkSelfPermissions() {
