@@ -7,18 +7,45 @@
     android:focusableInTouchMode="true">
 
 
+    <View
+        android:id="@+id/view_logo"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_160"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:src="@mipmap/logo"
+        app:layout_constraintBottom_toBottomOf="@+id/view_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="鼎点"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_40"
         android:layout_marginTop="@dimen/dp_20"
         android:includeFontPadding="false"
-        android:text="16搜云车队"
+        android:text="登录"
         android:textSize="@dimen/sp_24"
-        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/view_logo" />
 
     <View
         android:id="@+id/view_account"
@@ -92,9 +119,44 @@
         app:layout_constraintStart_toEndOf="@+id/tv_password"
         app:layout_constraintTop_toTopOf="@+id/view_password" />
 
+    <LinearLayout
+        android:id="@+id/view_forget"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_password">
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="注册账号" />
+
+        <View
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@color/color_ededed" />
+
+        <TextView
+            android:id="@+id/tv_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="忘记密码" />
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/tv_btn"
-        android:layout_width="@dimen/dp_100"
+        android:layout_width="@dimen/dp_200"
         android:layout_height="@dimen/dp_38"
         android:layout_marginTop="@dimen/dp_20"
         android:background="@drawable/btn_1c81e9_r40"
@@ -103,7 +165,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_password" />
+        app:layout_constraintTop_toBottomOf="@+id/view_forget" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

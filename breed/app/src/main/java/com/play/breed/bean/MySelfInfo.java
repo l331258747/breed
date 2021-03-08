@@ -1,7 +1,5 @@
 package com.play.breed.bean;
 
-import android.text.TextUtils;
-
 import com.play.breed.bean.login.LoginBean;
 import com.play.breed.util.SPUtils;
 
@@ -27,10 +25,11 @@ public class MySelfInfo {
     }
 
     public boolean isLogin() {
-        if (!TextUtils.isEmpty(getUserToken())) {
-            return true;
-        }
         return false;
+//        if (!TextUtils.isEmpty(getUserToken())) {
+//            return true;
+//        }
+//        return false;
     }
 
     public void setLoginData(LoginBean model, String phone){

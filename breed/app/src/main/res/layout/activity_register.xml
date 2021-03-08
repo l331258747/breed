@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start_40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/dp_40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start_100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/dp_100" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end_40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/dp_40" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_20"
+        android:includeFontPadding="false"
+        android:text="注册"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_account"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_38"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账号："
+        app:layout_constraintBottom_toBottomOf="@id/view_account"
+        app:layout_constraintStart_toStartOf="@+id/view_account"
+        app:layout_constraintTop_toTopOf="@+id/view_account" />
+
+    <EditText
+        android:id="@+id/et_account"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_edit_r40"
+        android:hint="请输入帐号"
+        android:inputType="text"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@+id/view_account"
+        app:layout_constraintEnd_toEndOf="@+id/view_account"
+        app:layout_constraintStart_toStartOf="@+id/gl_start_100"
+        app:layout_constraintTop_toTopOf="@+id/view_account" />
+
+    <View
+        android:id="@+id/view_password"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_38"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_account" />
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码："
+        app:layout_constraintBottom_toBottomOf="@id/view_password"
+        app:layout_constraintStart_toStartOf="@+id/view_password"
+        app:layout_constraintTop_toTopOf="@+id/view_password" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_edit_r40"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@+id/view_password"
+        app:layout_constraintEnd_toEndOf="@+id/view_password"
+        app:layout_constraintStart_toStartOf="@+id/gl_start_100"
+        app:layout_constraintTop_toTopOf="@+id/view_password" />
+
+    <View
+        android:id="@+id/view_verify"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_38"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_password" />
+
+    <TextView
+        android:id="@+id/tv_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="验证码："
+        app:layout_constraintBottom_toBottomOf="@id/view_verify"
+        app:layout_constraintStart_toStartOf="@+id/view_verify"
+        app:layout_constraintTop_toTopOf="@+id/view_verify" />
+
+    <EditText
+        android:id="@+id/et_verify"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_edit_r40"
+        android:hint="请输入验证码"
+        android:inputType="textPassword"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@+id/view_verify"
+        app:layout_constraintEnd_toEndOf="@+id/view_verify"
+        app:layout_constraintStart_toStartOf="@+id/gl_start_100"
+        app:layout_constraintTop_toTopOf="@+id/view_verify" />
+
+    <TextView
+        android:id="@+id/tv_verify_code"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_1c81e9_r40"
+        android:gravity="center"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_5"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:text="发送验证码"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/et_verify"
+        app:layout_constraintEnd_toEndOf="@+id/et_verify"
+        app:layout_constraintTop_toTopOf="@+id/et_verify" />
+
+
+    <View
+        android:id="@+id/view_recommend"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_38"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_verify" />
+
+    <TextView
+        android:id="@+id/tv_recommend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="推荐码："
+        app:layout_constraintBottom_toBottomOf="@id/view_recommend"
+        app:layout_constraintStart_toStartOf="@+id/view_recommend"
+        app:layout_constraintTop_toTopOf="@+id/view_recommend" />
+
+    <EditText
+        android:id="@+id/et_recommend"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_edit_r40"
+        android:hint="请输入推荐码"
+        android:inputType="textPassword"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@+id/view_recommend"
+        app:layout_constraintEnd_toEndOf="@+id/view_recommend"
+        app:layout_constraintStart_toStartOf="@+id/gl_start_100"
+        app:layout_constraintTop_toTopOf="@+id/view_recommend" />
+
+    <LinearLayout
+        android:id="@+id/ll_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_5"
+        app:layout_constraintTop_toBottomOf="@+id/view_recommend"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_10"
+            android:src="@mipmap/ic_check_un" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="已阅读并同意"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/color_66" />
+
+        <TextView
+            android:id="@+id/tv_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《服务协议》"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/color_10AF4F" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_btn"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_38"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/btn_1c81e9_r40"
+        android:gravity="center"
+        android:text="注册"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_check" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

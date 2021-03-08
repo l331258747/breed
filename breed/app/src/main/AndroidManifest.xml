@@ -55,6 +55,23 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
 
+        <activity android:name=".view.login.RegisterActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".view.login.ForgetActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".view.web.WebTextActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".view.web.WebViewActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
+
     </application>
 
 </manifest>
