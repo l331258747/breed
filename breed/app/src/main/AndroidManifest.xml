@@ -71,6 +71,18 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
 
+        <activity android:name=".view.notice.NoticeActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".view.notice.NoticeDetailActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".view.notice.NoticeSysActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
 
     </application>
 
