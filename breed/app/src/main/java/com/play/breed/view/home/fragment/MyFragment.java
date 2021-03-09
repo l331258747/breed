@@ -12,6 +12,7 @@ import com.play.breed.R;
 import com.play.breed.base.BaseFragment;
 import com.play.breed.view.notice.NoticeActivity;
 import com.play.breed.view.notice.NoticeSysActivity;
+import com.play.breed.view.order.OrderListActivity;
 
 public class MyFragment extends BaseFragment implements View.OnClickListener {
 
@@ -72,7 +73,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(new Intent(context, NoticeActivity.class));
                 break;
             case R.id.view_order_title:
-
+                startActivity(new Intent(context, OrderListActivity.class));
                 break;
 
         }

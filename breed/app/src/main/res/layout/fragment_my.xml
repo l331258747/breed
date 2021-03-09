@@ -198,6 +198,30 @@
             app:layout_constraintTop_toBottomOf="@+id/view_order_title" />
 
         <LinearLayout
+            android:id="@+id/ll_order_all"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/view_order_tab"
+            app:layout_constraintEnd_toStartOf="@+id/ll_order_wait"
+            app:layout_constraintStart_toStartOf="@+id/view_order_tab"
+            app:layout_constraintTop_toTopOf="@+id/view_order_tab">
+
+            <ImageView
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:src="@mipmap/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="全部" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/ll_order_wait"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -205,7 +229,7 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/view_order_tab"
             app:layout_constraintEnd_toStartOf="@+id/ll_order_pay"
-            app:layout_constraintStart_toStartOf="@+id/view_order_tab"
+            app:layout_constraintStart_toEndOf="@+id/ll_order_all"
             app:layout_constraintTop_toTopOf="@+id/view_order_tab">
 
             <ImageView
@@ -252,7 +276,7 @@
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/view_order_tab"
-            app:layout_constraintEnd_toStartOf="@+id/ll_order_refund"
+            app:layout_constraintEnd_toEndOf="@+id/view_order_tab"
             app:layout_constraintStart_toEndOf="@+id/ll_order_pay"
             app:layout_constraintTop_toTopOf="@+id/view_order_tab">
 
@@ -266,30 +290,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_5"
                 android:text="已完成" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_order_refund"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@+id/view_order_tab"
-            app:layout_constraintEnd_toEndOf="@+id/view_order_tab"
-            app:layout_constraintStart_toEndOf="@+id/ll_order_success"
-            app:layout_constraintTop_toTopOf="@+id/view_order_tab">
-
-            <ImageView
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="@dimen/dp_30"
-                android:src="@mipmap/logo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_5"
-                android:text="退货/售后" />
 
         </LinearLayout>
 
