@@ -98,6 +98,10 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
 
+        <activity android:name=".view.user.TeamActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+
     </application>
 
 </manifest>
