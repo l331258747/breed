@@ -101,6 +101,21 @@
         <activity android:name=".view.user.TeamActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.login.ModifyPasswordActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.user.security.CapitalSetActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.user.security.AuthenticationActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.user.security.SecurityHomeActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.user.security.CollectionActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
 
     </application>
 

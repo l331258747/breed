@@ -15,6 +15,7 @@ import com.play.breed.view.notice.NoticeActivity;
 import com.play.breed.view.notice.NoticeSysActivity;
 import com.play.breed.view.order.OrderListActivity;
 import com.play.breed.view.user.TeamActivity;
+import com.play.breed.view.user.security.SecurityHomeActivity;
 
 public class MyFragment extends BaseFragment implements View.OnClickListener {
 
@@ -22,7 +23,8 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
     ImageView iv_sys_notify;
     View view_notice, view_order_title;
 
-    LinearLayout ll_order_success,ll_order_pay,ll_order_wait,ll_order_all,ll_service_team;
+    LinearLayout ll_order_success,ll_order_pay,ll_order_wait,ll_order_all;
+    LinearLayout ll_service_team,ll_service_security;
 
 
     @Override
@@ -43,6 +45,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         ll_order_wait = $(R.id.ll_order_wait);
         ll_order_all = $(R.id.ll_order_all);
 
+        ll_service_security = $(R.id.ll_service_security);
         ll_service_team = $(R.id.ll_service_team);
 
         tv_copy.setOnClickListener(this);
@@ -56,6 +59,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         ll_order_all.setOnClickListener(this);
 
         ll_service_team.setOnClickListener(this);
+        ll_service_security.setOnClickListener(this);
 
     }
 
@@ -100,6 +104,9 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.ll_service_team:
                 startActivity(new Intent(context, TeamActivity.class));
+                break;
+            case R.id.ll_service_security:
+                startActivity(new Intent(context, SecurityHomeActivity.class));
                 break;
 
         }
