@@ -108,7 +108,7 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                 }).show();
                 break;
             case R.id.btn_pay:
-                new TextDialog(context).setContent("是否确认取消订单？").setSubmitListener(v1 -> {
+                new TextDialog(context).setContent("是否确认付款？").setSubmitListener(v1 -> {
 //                    mInfoPresenter.mine(MySelfInfo.getInstance().getUserId(),true);
                 }).show();
                 break;
