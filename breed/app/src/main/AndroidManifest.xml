@@ -116,6 +116,12 @@
         <activity android:name=".view.user.security.CollectionActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.user.bill.BillHomeActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.user.bill.BillDetailActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
 
     </application>
 
