@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/dp_15" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/dp_15" />
+
+    <View
+        android:id="@+id/view_ba_name"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_ba_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择吧名"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        app:layout_constraintTop_toTopOf="@+id/view_ba_name"
+        app:layout_constraintBottom_toBottomOf="@id/view_ba_name"/>
+
+    <TextView
+        android:id="@+id/tv_ba_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_ba_name_title"
+        app:layout_constraintTop_toTopOf="@id/view_ba_name"
+        android:layout_marginLeft="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@id/view_ba_name"
+        android:hint="请选择"/>
+
+    <ImageView
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:src="@mipmap/ic_next2"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        app:layout_constraintTop_toTopOf="@+id/view_ba_name"
+        app:layout_constraintBottom_toBottomOf="@id/view_ba_name"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_ba_name"
+        android:background="@color/color_66"/>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:hint="输入发帖标题"
+        app:layout_constraintTop_toBottomOf="@+id/view_ba_name"
+        app:layout_constraintStart_toStartOf="@+id/gl_start_15"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        android:background="@color/transparent"/>
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="输入帖子内容，尽情发挥吧..."
+        app:layout_constraintTop_toBottomOf="@+id/et_title"
+        app:layout_constraintStart_toStartOf="@+id/gl_start_15"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        android:gravity="top"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:minLines="10"
+        android:maxLines="10"
+        android:background="@color/transparent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="wrap_content"
+        android:overScrollMode="never"
+        android:layout_height="@dimen/dp_80"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        app:layout_constraintTop_toBottomOf="@+id/et_content"
+        android:orientation="vertical"/>
+
+    <ImageView
+        android:id="@+id/iv_camera"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:src="@mipmap/ic_camera"
+        app:layout_constraintTop_toTopOf="@id/recycler_view"
+        app:layout_constraintStart_toEndOf="@+id/recycler_view"/>
+
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        app:layout_constraintTop_toTopOf="@id/view_top"
+        app:layout_constraintBottom_toBottomOf="@id/view_top"
+        android:text="置顶"/>
+
+    <ImageView
+        android:id="@+id/iv_switch"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_30"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        app:layout_constraintTop_toTopOf="@id/view_top"
+        app:layout_constraintBottom_toBottomOf="@id/view_top"
+        android:src="@mipmap/ic_switch_on"/>
+
+    <TextView
+        android:id="@+id/btn_submit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:background="@drawable/btn_1c81e9_r40"
+        android:gravity="center"
+        android:text="发布"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_top" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

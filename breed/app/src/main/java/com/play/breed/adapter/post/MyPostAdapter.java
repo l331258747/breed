@@ -13,12 +13,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
+public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.ViewHolder> {
 
     Context mContext;
     List<PostBean> datas;
 
-    public PostAdapter(Context context, List<PostBean> datas) {
+
+    public MyPostAdapter(Context context, List<PostBean> datas) {
         mContext = context;
         this.datas = datas;
     }
@@ -27,7 +28,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view = LayoutInflater.from(mContext).inflate(R.layout.item_post, parent, false);
+        view = LayoutInflater.from(mContext).inflate(R.layout.item_my_post, parent, false);
         return new ViewHolder(view);
     }
 
@@ -36,6 +37,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         if (holder == null) return;
         final PostBean data = datas.get(position);
         if (data == null) return;
+
+
 
         if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener(v -> mOnItemClickListener.onClick(position));
