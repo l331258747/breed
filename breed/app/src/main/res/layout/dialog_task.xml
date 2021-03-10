@@ -79,7 +79,7 @@
 
     <TextView
         android:layout_width="@dimen/dp_80"
-        android:layout_height="@dimen/dp_25"
+        android:layout_height="@dimen/dp_30"
         android:text="立即签到"
         app:layout_constraintEnd_toEndOf="@id/view_sign"
         app:layout_constraintTop_toTopOf="@id/view_sign"
@@ -130,7 +130,7 @@
 
     <TextView
         android:layout_width="@dimen/dp_80"
-        android:layout_height="@dimen/dp_25"
+        android:layout_height="@dimen/dp_30"
         android:text="做任务"
         app:layout_constraintEnd_toEndOf="@id/view_task"
         app:layout_constraintTop_toTopOf="@id/view_task"
