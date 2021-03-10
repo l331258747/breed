@@ -1,4 +1,4 @@
-package com.play.breed.adapter.breedPlant;
+package com.play.breed.adapter.breed;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.play.breed.R;
-import com.play.breed.bean.breedPlant.MyBreedBean;
+import com.play.breed.bean.breed.MyBreedBean;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -36,6 +36,9 @@ public class MyBreedAdapter extends RecyclerView.Adapter<MyBreedAdapter.ViewHold
         final MyBreedBean data = datas.get(position);
         if (data == null) return;
 
+        if (mOnItemClickListener != null) {
+            holder.itemView.setOnClickListener(v -> mOnItemClickListener.onClick(position));
+        }
     }
 
     @Override
@@ -64,6 +67,16 @@ public class MyBreedAdapter extends RecyclerView.Adapter<MyBreedAdapter.ViewHold
             super(itemView);
 
         }
+    }
+
+    OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener {
+        void onClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.mOnItemClickListener = onItemClickListener;
     }
 
 }

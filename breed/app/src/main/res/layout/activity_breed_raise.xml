@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/dp_15" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/dp_15" />
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@mipmap/logo"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动物名称"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        android:layout_marginStart="@dimen/dp_90"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dp_10"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="成长周期：10天"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        android:layout_marginStart="@dimen/dp_90"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dp_35"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100积分"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        android:layout_marginStart="@dimen/dp_90"
+        android:textSize="@dimen/sp_12"
+        android:layout_marginTop="@dimen/dp_15"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x1"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        android:layout_marginStart="@dimen/dp_90"
+        android:textSize="@dimen/sp_12"
+        android:layout_marginTop="@dimen/dp_35"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/view_num"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="购买数量"
+        app:layout_constraintStart_toStartOf="@id/view_num"
+        app:layout_constraintTop_toTopOf="@id/view_num"
+        app:layout_constraintBottom_toBottomOf="@id/view_num"/>
+
+    <com.play.breed.widget.NumberView
+        android:id="@+id/numberView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        app:layout_constraintTop_toTopOf="@id/view_num"
+        app:layout_constraintBottom_toBottomOf="@id/view_num"/>
+
+    <View
+        android:id="@+id/view_remark"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        app:layout_constraintTop_toBottomOf="@+id/view_num"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="订单备注"
+        app:layout_constraintStart_toStartOf="@id/view_remark"
+        app:layout_constraintTop_toTopOf="@id/view_remark"
+        app:layout_constraintBottom_toBottomOf="@id/view_remark"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/gl_start_15"
+        android:layout_marginStart="@dimen/dp_70"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        android:background="@color/transparent"
+        app:layout_constraintTop_toTopOf="@id/view_remark"
+        android:hint="请输入备注(选填)"
+        app:layout_constraintBottom_toBottomOf="@id/view_remark"/>
+
+
+    <View
+        android:id="@+id/view_bottom"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="@dimen/frame_bottom"/>
+
+    <TextView
+        android:id="@+id/btn_submit"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_25"
+        android:text="确定饲养"
+        android:gravity="center"
+        android:background="@drawable/btn_1c81e9_r40"
+        app:layout_constraintBottom_toBottomOf="@id/view_bottom"
+        app:layout_constraintTop_toTopOf="@id/view_bottom"
+        app:layout_constraintEnd_toEndOf="@id/gl_end_15"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/view_bottom"
+        app:layout_constraintTop_toTopOf="@id/view_bottom"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toStartOf="@+id/tv_price_all"
+        android:text="共1件"/>
+
+    <TextView
+        android:id="@+id/tv_price_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/view_bottom"
+        app:layout_constraintTop_toTopOf="@id/view_bottom"
+        android:layout_marginEnd="@dimen/dp_10"
+        app:layout_constraintEnd_toStartOf="@+id/btn_submit"
+        android:text="合计：100积分"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

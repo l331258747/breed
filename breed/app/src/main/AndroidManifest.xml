@@ -37,6 +37,17 @@
         android:requestLegacyExternalStorage="true"
         tools:ignore="GoogleAppIndexingWarning">
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/vlion_file_provider"/>
+        </provider>
+
+
         <activity android:name=".view.SplashActivity"
             android:launchMode="singleTask"
             android:theme="@style/SplashTheme"
@@ -141,19 +152,14 @@
         <activity android:name=".view.post.PostDetailActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".view.breedPlant.BreedMarketActivity"
+        <activity android:name=".view.breed.BreedMarketActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.breed.BreedRaiseActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
 
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/vlion_file_provider"/>
-        </provider>
+
 
     </application>
 

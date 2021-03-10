@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.play.breed.R;
 import com.play.breed.base.BaseFragment;
 import com.play.breed.dialog.TaskDialog;
-import com.play.breed.view.breedPlant.BreedMarketActivity;
+import com.play.breed.view.breed.BreedMarketActivity;
 
 abstract class BreedPlantFragment extends BaseFragment implements View.OnClickListener {
 

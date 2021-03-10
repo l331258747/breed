@@ -1,11 +1,13 @@
-package com.play.breed.view.breedPlant;
+package com.play.breed.view.breed;
+
+import android.content.Intent;
 
 import com.play.breed.R;
 import com.play.breed.adapter.base.EndlessRecyclerOnScrollListener;
 import com.play.breed.adapter.base.LoadMoreWrapper;
-import com.play.breed.adapter.breedPlant.MyBreedAdapter;
+import com.play.breed.adapter.breed.MyBreedAdapter;
 import com.play.breed.base.BaseActivity;
-import com.play.breed.bean.breedPlant.MyBreedBean;
+import com.play.breed.bean.breed.MyBreedBean;
 import com.play.breed.constant.Constant;
 
 import java.util.ArrayList;
@@ -119,6 +121,10 @@ public class BreedMarketActivity extends BaseActivity {
                 loadMoreWrapper.setLoadState(loadMoreWrapper.LOADING);
                 getMoreData();
             }
+        });
+
+        mAdapter.setOnItemClickListener(position -> {
+            startActivity(new Intent(context, BreedRaiseActivity.class));
         });
     }
 }
