@@ -131,7 +131,7 @@
     <TextView
         android:id="@+id/btn_submit"
         android:layout_width="@dimen/dp_80"
-        android:layout_height="@dimen/dp_25"
+        android:layout_height="@dimen/dp_30"
         android:text="确定饲养"
         android:gravity="center"
         android:background="@drawable/btn_1c81e9_r40"

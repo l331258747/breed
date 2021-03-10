@@ -8,6 +8,7 @@ import com.play.breed.R;
 import com.play.breed.base.BaseFragment;
 import com.play.breed.dialog.TaskDialog;
 import com.play.breed.view.breed.BreedMarketActivity;
+import com.play.breed.view.breed.BreedMyActivity;
 
 abstract class BreedPlantFragment extends BaseFragment implements View.OnClickListener {
 
@@ -67,7 +68,7 @@ abstract class BreedPlantFragment extends BaseFragment implements View.OnClickLi
 
                 break;
             case R.id.tv_number:
-
+                startActivity(new Intent(context, BreedMyActivity.class));
                 break;
             case R.id.tv_task:
                 new TaskDialog(context).setTitle(type == 1 ? "植物饲养任务" : "动物饲养任务").show();

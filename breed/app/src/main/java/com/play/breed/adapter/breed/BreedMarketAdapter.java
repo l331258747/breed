@@ -6,18 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.play.breed.R;
-import com.play.breed.bean.breed.MyBreedBean;
+import com.play.breed.bean.breed.BreedMarketBean;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyBreedAdapter extends RecyclerView.Adapter<MyBreedAdapter.ViewHolder> {
+public class BreedMarketAdapter extends RecyclerView.Adapter<BreedMarketAdapter.ViewHolder> {
 
     Context mContext;
-    List<MyBreedBean> datas;
+    List<BreedMarketBean> datas;
 
-    public MyBreedAdapter(Context context, List<MyBreedBean> datas) {
+    public BreedMarketAdapter(Context context, List<BreedMarketBean> datas) {
         mContext = context;
         this.datas = datas;
     }
@@ -26,14 +26,14 @@ public class MyBreedAdapter extends RecyclerView.Adapter<MyBreedAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view = LayoutInflater.from(mContext).inflate(R.layout.item_my_breed, parent, false);
+        view = LayoutInflater.from(mContext).inflate(R.layout.item_market_breed, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if (holder == null) return;
-        final MyBreedBean data = datas.get(position);
+        final BreedMarketBean data = datas.get(position);
         if (data == null) return;
 
         if (mOnItemClickListener != null) {
@@ -46,17 +46,17 @@ public class MyBreedAdapter extends RecyclerView.Adapter<MyBreedAdapter.ViewHold
         return datas.size();
     }
 
-    public void setData(List<MyBreedBean> datas) {
+    public void setData(List<BreedMarketBean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
 
-    public void addData(List<MyBreedBean> datas){
+    public void addData(List<BreedMarketBean> datas){
         this.datas.addAll(datas);
         notifyDataSetChanged();
     }
 
-    public List<MyBreedBean> getData() {
+    public List<BreedMarketBean> getData() {
         return this.datas;
     }
 

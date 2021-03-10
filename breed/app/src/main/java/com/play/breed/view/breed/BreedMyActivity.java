@@ -5,9 +5,9 @@ import android.content.Intent;
 import com.play.breed.R;
 import com.play.breed.adapter.base.EndlessRecyclerOnScrollListener;
 import com.play.breed.adapter.base.LoadMoreWrapper;
-import com.play.breed.adapter.breed.BreedMarketAdapter;
+import com.play.breed.adapter.breed.BreedMyAdapter;
 import com.play.breed.base.BaseActivity;
-import com.play.breed.bean.breed.BreedMarketBean;
+import com.play.breed.bean.breed.BreedMyBean;
 import com.play.breed.constant.Constant;
 
 import java.util.ArrayList;
@@ -17,15 +17,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-public class BreedMarketActivity extends BaseActivity {
+public class BreedMyActivity extends BaseActivity {
 
     SwipeRefreshLayout swipe;
 
     private RecyclerView recyclerView;
 
-    private BreedMarketAdapter mAdapter;
+    private BreedMyAdapter mAdapter;
 
-    List<BreedMarketBean> list;
+    List<BreedMyBean> list;
 
     int page = Constant.DEFAULT_PAGE;
     LoadMoreWrapper loadMoreWrapper;
@@ -34,17 +34,12 @@ public class BreedMarketActivity extends BaseActivity {
     
     @Override
     public int getLayoutId() {
-        return R.layout.base_swipe_recycler;
+        return R.layout.activity_breed_my;
     }
 
     @Override
     public void initView() {
-        showLeftAndTitle("动物市场");
-        showRightTv();
-        getRightTv().setText("我的动物+1");
-        getRightTv().setOnClickListener(v -> {
-            startActivity(new Intent(context,BreedMyActivity.class));
-        });
+        showLeftAndTitle("我的动物");
         initSwipe();
         initRecycler();
     }
@@ -64,9 +59,9 @@ public class BreedMarketActivity extends BaseActivity {
     }
 
     private void getList(int page) {
-        List<BreedMarketBean> data = new ArrayList<>();
+        List<BreedMyBean> data = new ArrayList<>();
         for (int i=0;i<10;i++){
-            BreedMarketBean item = new BreedMarketBean();
+            BreedMyBean item = new BreedMyBean();
             data.add(item);
         }
 
@@ -113,7 +108,7 @@ public class BreedMarketActivity extends BaseActivity {
     private void initRecycler() {
         recyclerView = $(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
-        mAdapter = new BreedMarketAdapter(activity, new ArrayList<>());
+        mAdapter = new BreedMyAdapter(activity, new ArrayList<>());
         loadMoreWrapper = new LoadMoreWrapper(mAdapter);
         recyclerView.setAdapter(loadMoreWrapper);
 
