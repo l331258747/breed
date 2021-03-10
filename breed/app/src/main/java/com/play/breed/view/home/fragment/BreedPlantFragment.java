@@ -9,6 +9,7 @@ import com.play.breed.base.BaseFragment;
 import com.play.breed.dialog.TaskDialog;
 import com.play.breed.view.breed.BreedMarketActivity;
 import com.play.breed.view.breed.BreedMyActivity;
+import com.play.breed.view.web.WebTextActivity;
 
 abstract class BreedPlantFragment extends BaseFragment implements View.OnClickListener {
 
@@ -80,7 +81,9 @@ abstract class BreedPlantFragment extends BaseFragment implements View.OnClickLi
 
                 break;
             case R.id.tv_guide:
-
+                Intent intent = new Intent(context, WebTextActivity.class);
+                intent.putExtra("web_text", "养殖指引");
+                startActivity(intent);
                 break;
             case R.id.tv_vaccines:
 
