@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">鼎典</string>
 
-    <string name="str_tab_breed">种植</string>
-    <string name="str_tab_plant">养殖</string>
+    <string name="str_tab_breed">养殖</string>
+    <string name="str_tab_plant">种植</string>
     <string name="str_tab_mall">商城</string>
     <string name="str_tab_post">贴吧</string>
     <string name="str_tab_my">我的</string>
