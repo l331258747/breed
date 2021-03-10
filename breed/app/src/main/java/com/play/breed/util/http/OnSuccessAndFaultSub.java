@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.play.breed.adapter.dialog.DialogUtil;
+import com.play.breed.dialog.DialogUtil;
 import com.play.breed.base.ActivityCollect;
 import com.play.breed.bean.BaseResponse;
 import com.play.breed.bean.MySelfInfo;

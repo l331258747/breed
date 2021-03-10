@@ -141,6 +141,9 @@
         <activity android:name=".view.post.PostDetailActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.breedPlant.BreedMarketActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

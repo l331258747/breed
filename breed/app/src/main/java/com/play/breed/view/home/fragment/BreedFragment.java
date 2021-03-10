@@ -1,32 +1,14 @@
 package com.play.breed.view.home.fragment;
 
-import com.play.breed.R;
-import com.play.breed.base.BaseFragment;
+import android.os.Bundle;
 
-public class BreedFragment extends BaseFragment {
+import androidx.annotation.Nullable;
 
-    @Override
-    public int getLayoutId() {
-        return R.layout.fragment_breed;
-    }
+public class BreedFragment extends BreedPlantFragment {
 
     @Override
-    public void initView() {
-
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setType(0);
     }
-
-
-    @Override
-    public void initData() {
-
-
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-    }
-
-
 }

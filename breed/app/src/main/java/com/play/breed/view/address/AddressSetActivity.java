@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.play.breed.R;
 import com.play.breed.adapter.address.AddressAdapter;
-import com.play.breed.adapter.dialog.DialogUtil;
+import com.play.breed.dialog.DialogUtil;
 import com.play.breed.base.BaseActivity;
 import com.play.breed.bean.MySelfInfo;
 import com.play.breed.bean.address.AddressBean;

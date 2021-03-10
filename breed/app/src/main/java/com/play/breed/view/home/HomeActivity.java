@@ -116,10 +116,10 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickLi
 
         switch (index) {
             case 0:
-                setTitleSingle(true, getResString(R.string.str_tab_breed));
+                setTitleSingle(false, getResString(R.string.str_tab_breed));
                 break;
             case 1:
-                setTitleSingle(true, getResString(R.string.str_tab_plant));
+                setTitleSingle(false, getResString(R.string.str_tab_plant));
                 break;
             case 2:
                 setTitleSingle(true, getResString(R.string.str_tab_mall));

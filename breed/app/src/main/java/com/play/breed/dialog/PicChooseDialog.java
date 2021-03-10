@@ -1,4 +1,4 @@
-package com.play.breed.adapter.dialog;
+package com.play.breed.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;

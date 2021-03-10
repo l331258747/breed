@@ -12,7 +12,7 @@ import android.os.Build;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 
-import com.play.breed.adapter.dialog.PicChooseDialog;
+import com.play.breed.dialog.PicChooseDialog;
 import com.play.breed.constant.Constant;
 import com.play.breed.util.file.FileUtil;
 import com.play.breed.util.log.LogUtil;
