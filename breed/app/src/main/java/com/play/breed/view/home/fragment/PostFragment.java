@@ -14,6 +14,7 @@ import com.play.breed.bean.post.PostBean;
 import com.play.breed.bean.post.PostClassifyBean;
 import com.play.breed.constant.Constant;
 import com.play.breed.view.post.MyPostActivity;
+import com.play.breed.view.post.PostDetailActivity;
 import com.play.breed.view.post.SendPostActivity;
 
 import java.util.ArrayList;
@@ -52,8 +53,8 @@ public class PostFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void initView() {
-        tv_send_post =$(R.id.tv_send_post);
-        view_my_post =$(R.id.view_my_post);
+        tv_send_post = $(R.id.tv_send_post);
+        view_my_post = $(R.id.view_my_post);
 
         tv_send_post.setOnClickListener(this);
         view_my_post.setOnClickListener(this);
@@ -81,25 +82,25 @@ public class PostFragment extends BaseFragment implements View.OnClickListener {
         getList(page);
     }
 
-    private void getClassifyList(){
+    private void getClassifyList() {
         List<PostClassifyBean> data = new ArrayList<>();
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             PostClassifyBean item = new PostClassifyBean();
             data.add(item);
         }
-        if(data == null) data = new ArrayList<>();
+        if (data == null) data = new ArrayList<>();
         classifyAdapter.setData(data);
         this.listClassify = classifyAdapter.getData();
     }
 
     private void getList(int page) {
         List<PostBean> data = new ArrayList<>();
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             PostBean item = new PostBean();
             data.add(item);
         }
 
-        if(data == null) data = new ArrayList<>();
+        if (data == null) data = new ArrayList<>();
 
         swipe.setRefreshing(false);
 
@@ -147,7 +148,7 @@ public class PostFragment extends BaseFragment implements View.OnClickListener {
         recyclerView.setAdapter(loadMoreWrapper);
 
         mAdapter.setOnItemClickListener(position -> {
-//            startActivity(new Intent(context, NoticeDetailActivity.class));
+            startActivity(new Intent(context, PostDetailActivity.class));
         });
 
         recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
@@ -181,7 +182,7 @@ public class PostFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.view_my_post:
                 startActivity(new Intent(context, MyPostActivity.class));
                 break;

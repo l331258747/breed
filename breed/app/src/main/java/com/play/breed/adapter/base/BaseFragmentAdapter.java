@@ -22,6 +22,10 @@ public class BaseFragmentAdapter extends FragmentPagerAdapter {
         this(fm, null, null);
     }
 
+    public BaseFragmentAdapter(FragmentManager fm,List<Fragment> fragmentList) {
+        this(fm, fragmentList, null);
+    }
+
     public BaseFragmentAdapter(FragmentManager fm, List<Fragment> fragmentList, String[] mTitles) {
         super(fm);
         if (fragmentList == null) {

@@ -138,6 +138,9 @@
         <activity android:name=".view.post.SendPostActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.post.PostDetailActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
