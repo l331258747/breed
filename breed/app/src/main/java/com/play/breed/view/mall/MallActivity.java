@@ -82,9 +82,7 @@ public class MallActivity extends BaseActivity implements TabLayout.OnTabClickLi
     //设置标题
     public void setTitleSingle(boolean showTitle, String title) {
         if (showTitle) {
-            showTitleLayout();
-            showTitleTv();
-            getTitleTv().setText(title);
+            showLeftAndTitle(title);
         } else {
             hideTitleLayout();
         }
