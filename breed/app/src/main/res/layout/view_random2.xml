@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/dp_10"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/ic_ji" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:max="100"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintStart_toStartOf="@id/iv_img"
+        app:layout_constraintEnd_toEndOf="@id/iv_img"
+        app:layout_constraintBottom_toBottomOf="@id/iv_img"
+        android:progress="60" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="剩余4天"
+        app:layout_constraintStart_toStartOf="@id/iv_img"
+        app:layout_constraintEnd_toEndOf="@id/iv_img"
+        android:background="@color/color_66_33"
+        android:paddingStart="@dimen/dp_5"
+        android:paddingEnd="@dimen/dp_5"
+        app:layout_constraintBottom_toTopOf="@+id/progress"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

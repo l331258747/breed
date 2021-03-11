@@ -2,7 +2,10 @@ package com.play.breed.view.home.fragment;
 
 import android.os.Bundle;
 
+import com.play.breed.R;
+
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 public class BreedFragment extends BreedPlantFragment {
 
@@ -11,4 +14,11 @@ public class BreedFragment extends BreedPlantFragment {
         super.onCreate(savedInstanceState);
         setType(0);
     }
+
+    @Override
+    public void initView() {
+        super.initView();
+        view_breed.setBackground(ContextCompat.getDrawable(context, R.mipmap.bg_caoyuan));
+    }
+
 }

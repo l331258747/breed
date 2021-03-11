@@ -1,20 +1,28 @@
 package com.play.breed.view.home.fragment;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.play.breed.R;
 import com.play.breed.base.BaseFragment;
+import com.play.breed.bean.breed.RandomBean;
 import com.play.breed.dialog.TaskDialog;
 import com.play.breed.view.breed.BreedMarketActivity;
 import com.play.breed.view.breed.BreedMyActivity;
 import com.play.breed.view.breed.BreedSellActivity;
 import com.play.breed.view.web.WebTextActivity;
+import com.play.breed.widget.randomlayout.FlyLayout;
+import com.play.breed.widget.randomlayout.RandomLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 abstract class BreedPlantFragment extends BaseFragment implements View.OnClickListener {
 
     TextView tv_sign, tv_number, tv_task, tv_market, tv_sell, tv_guide, tv_vaccines, tv_feed;
+    View view_breed;
 
     int type;
 
@@ -29,6 +37,8 @@ abstract class BreedPlantFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     public void initView() {
+
+        view_breed = $(R.id.view_breed);
 
         tv_sign = $(R.id.tv_sign);
         tv_number = $(R.id.tv_number);
@@ -47,6 +57,39 @@ abstract class BreedPlantFragment extends BaseFragment implements View.OnClickLi
         tv_guide.setOnClickListener(this);
         tv_vaccines.setOnClickListener(this);
         tv_feed.setOnClickListener(this);
+
+        initRandom();
+    }
+
+    private void initRandom() {
+        List<RandomBean> datas = new ArrayList<>();
+        for (int i=0;i<5;i++){
+            RandomBean item = new RandomBean();
+            item.setTitle("" + i);
+            item.setType(0);
+            datas.add(item);
+        }
+
+        for (int i=0;i<8;i++){
+            RandomBean item = new RandomBean();
+            item.setTitle("" + i);
+            item.setType(1);
+            datas.add(item);
+        }
+
+        FlyLayout flyLayout = $(R.id.rl);
+        flyLayout.setData(datas,type);
+        flyLayout.setOnFlyEverythingListener(new FlyLayout.OnFlyEverythingListener() {
+            @Override
+            public void onItemClick(View view, int position, String text) {
+                showShortToast(text);
+            }
+
+            @Override
+            public void onAnimationEnd(RandomLayout randomLayout, int animationCount) {
+                Log.d("test", "randomLayout:" + randomLayout);
+            }
+        });
     }
 
 
