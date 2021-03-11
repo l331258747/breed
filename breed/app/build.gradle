@@ -55,4 +55,6 @@ dependencies {
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
     //textview标签
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    //banner
+    implementation 'com.youth.banner:banner:2.1.0'
 }

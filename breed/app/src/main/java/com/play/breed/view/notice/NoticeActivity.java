@@ -70,7 +70,6 @@ public class NoticeActivity extends BaseActivity {
         swipe.setRefreshing(false);
 
         if (isLoadType == 1) {
-            this.list = data;
             mAdapter.setData(data);
         } else {
             mAdapter.addData(data);
