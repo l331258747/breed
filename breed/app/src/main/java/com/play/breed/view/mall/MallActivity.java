@@ -1,19 +1,17 @@
-package com.play.breed.view.home;
+package com.play.breed.view.mall;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.play.breed.R;
 import com.play.breed.base.BaseActivity;
 import com.play.breed.base.BaseFragment;
 import com.play.breed.util.StatusBarUtil;
-import com.play.breed.view.home.fragment.BreedFragment;
-import com.play.breed.view.home.fragment.MallFragment;
-import com.play.breed.view.home.fragment.MyFragment;
-import com.play.breed.view.home.fragment.PlantFragment;
-import com.play.breed.view.home.fragment.PostFragment;
-import com.play.breed.view.mall.MallActivity;
+import com.play.breed.view.mall.fragment.MallCarFragment;
+import com.play.breed.view.mall.fragment.MallClassifyFragment;
+import com.play.breed.view.mall.fragment.MallGoodsFragment;
+import com.play.breed.view.mall.fragment.MallHomeFragment;
+import com.play.breed.view.mall.fragment.MallOrderFragment;
 import com.play.breed.widget.tab.TabItem;
 import com.play.breed.widget.tab.TabLayout;
 import com.play.breed.widget.tab.TabView;
@@ -24,8 +22,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickListener {
-
+public class MallActivity extends BaseActivity implements TabLayout.OnTabClickListener {
     private TabLayout tabLayout;
     private ArrayList<TabItem> tabItems;
 
@@ -40,7 +37,6 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickLi
     @Override
     public void initView() {
         tabLayout = $(R.id.cus_tab_layout);
-
     }
 
 
@@ -52,11 +48,11 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickLi
 
         // 初始化页面
         try {
-            fragmentCls[0] = BreedFragment.class;
-            fragmentCls[1] = PlantFragment.class;
-            fragmentCls[2] = MallFragment.class;
-            fragmentCls[3] = PostFragment.class;
-            fragmentCls[4] = MyFragment.class;
+            fragmentCls[0] = MallHomeFragment.class;
+            fragmentCls[1] = MallClassifyFragment.class;
+            fragmentCls[2] = MallGoodsFragment.class;
+            fragmentCls[3] = MallCarFragment.class;
+            fragmentCls[4] = MallOrderFragment.class;
 
             fragments[0] = (BaseFragment) fragmentCls[0].newInstance();
             fragments[1] = (BaseFragment) fragmentCls[1].newInstance();
@@ -68,11 +64,11 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickLi
             e.printStackTrace();
         }
 
-        tabItems.add(new TabItem(R.drawable.tab_breed, R.string.str_tab_breed, 0, fragmentCls[0]));
-        tabItems.add(new TabItem(R.drawable.tab_plant, R.string.str_tab_plant, 0, fragmentCls[1]));
-        tabItems.add(new TabItem(R.drawable.tab_mall, R.string.str_tab_mall, 0, fragmentCls[2]));
-        tabItems.add(new TabItem(R.drawable.tab_post, R.string.str_tab_post, 0, fragmentCls[3]));
-        tabItems.add(new TabItem(R.drawable.tab_my, R.string.str_tab_my, 0, fragmentCls[4]));
+        tabItems.add(new TabItem(R.drawable.tab_mall_home, R.string.str_tab_mall_home, 0, fragmentCls[0]));
+        tabItems.add(new TabItem(R.drawable.tab_mall_classify, R.string.str_tab_mall_classify, 0, fragmentCls[1]));
+        tabItems.add(new TabItem(R.drawable.tab_mall_goods, R.string.str_tab_mall_goods, 0, fragmentCls[2]));
+        tabItems.add(new TabItem(R.drawable.tab_mall_car, R.string.str_tab_mall_car, 0, fragmentCls[3]));
+        tabItems.add(new TabItem(R.drawable.tab_mall_order, R.string.str_tab_mall_order, 0, fragmentCls[4]));
 
         tabLayout.initData(tabItems, this);
 
@@ -118,20 +114,19 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickLi
 
         switch (index) {
             case 0:
-                setTitleSingle(false, getResString(R.string.str_tab_breed));
+                setTitleSingle(true, getResString(R.string.str_tab_mall_home));
                 break;
             case 1:
-                setTitleSingle(false, getResString(R.string.str_tab_plant));
+                setTitleSingle(true, getResString(R.string.str_tab_mall_classify));
                 break;
             case 2:
-                startActivity(new Intent(context, MallActivity.class));
-//                setTitleSingle(true, getResString(R.string.str_tab_mall));
+                setTitleSingle(true, getResString(R.string.str_tab_mall_goods));
                 break;
             case 3:
-                setTitleSingle(false, getResString(R.string.str_tab_post));
+                setTitleSingle(true, getResString(R.string.str_tab_mall_car));
                 break;
             case 4:
-                setTitleSingle(false, getResString(R.string.str_tab_my));
+                setTitleSingle(true, getResString(R.string.str_tab_mall_order));
                 break;
         }
 
@@ -144,19 +139,17 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickLi
             }
         }
 
-        if(index != 2){
-            try {
-                tabLayout.setTabSelect(index);
+        try {
+            tabLayout.setTabSelect(index);
 
-                if (fragments[index].isAdded()) {
-                    transaction.show(fragments[index]).commitAllowingStateLoss();
-                } else {
-                    transaction.add(R.id.cus_tab_fragment, fragments[index]).commitAllowingStateLoss();
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (fragments[index].isAdded()) {
+                transaction.show(fragments[index]).commitAllowingStateLoss();
+            } else {
+                transaction.add(R.id.cus_tab_fragment, fragments[index]).commitAllowingStateLoss();
             }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -166,5 +159,4 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabClickLi
     protected void onSaveInstanceState(Bundle outState) {
 //		super.onSaveInstanceState(outState);
     }
-
 }

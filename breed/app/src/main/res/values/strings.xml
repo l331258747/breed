@@ -7,6 +7,12 @@
     <string name="str_tab_post">贴吧</string>
     <string name="str_tab_my">我的</string>
 
+    <string name="str_tab_mall_home">首页</string>
+    <string name="str_tab_mall_classify">分类</string>
+    <string name="str_tab_mall_goods">商品</string>
+    <string name="str_tab_mall_car">购物车</string>
+    <string name="str_tab_mall_order">商城订单</string>
+
 
     <string name="verify"><Data><![CDATA[重新发送<font color="#dd0000">%ds</font>]]></Data></string>
 

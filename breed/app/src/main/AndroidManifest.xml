@@ -164,6 +164,9 @@
         <activity android:name=".view.breed.BreedSellActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.mall.MallActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
 
 
 
