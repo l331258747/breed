@@ -82,6 +82,7 @@ public class MallActivity extends BaseActivity implements TabLayout.OnTabClickLi
     //设置标题
     public void setTitleSingle(boolean showTitle, String title) {
         if (showTitle) {
+            showTitleLayout();
             showLeftAndTitle(title);
         } else {
             hideTitleLayout();
@@ -118,7 +119,7 @@ public class MallActivity extends BaseActivity implements TabLayout.OnTabClickLi
                 setTitleSingle(true, getResString(R.string.str_tab_mall_classify));
                 break;
             case 2:
-                setTitleSingle(true, getResString(R.string.str_tab_mall_goods));
+                setTitleSingle(false, getResString(R.string.str_tab_mall_goods));
                 break;
             case 3:
                 setTitleSingle(true, getResString(R.string.str_tab_mall_car));

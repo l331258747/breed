@@ -1,5 +1,7 @@
 package com.play.breed.view.mall.fragment;
 
+import android.content.Intent;
+
 import com.play.breed.R;
 import com.play.breed.adapter.base.EndlessRecyclerOnScrollListener;
 import com.play.breed.adapter.base.LoadMoreWrapper;
@@ -7,6 +9,7 @@ import com.play.breed.adapter.mall.MallGoodsAdapter;
 import com.play.breed.base.BaseFragment;
 import com.play.breed.bean.mall.MallGoodsBean;
 import com.play.breed.constant.Constant;
+import com.play.breed.view.mall.MallGoodsDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +111,7 @@ public class MallGoodsFragment extends BaseFragment {
         recyclerView.setAdapter(loadMoreWrapper);
 
         mAdapter.setOnItemClickListener(position -> {
-
+            startActivity(new Intent(context, MallGoodsDetailActivity.class));
         });
 
         recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
