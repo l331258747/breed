@@ -114,7 +114,7 @@ public class MallCarFragment extends BaseFragment {
         recyclerView.setAdapter(loadMoreWrapper);
 
         mAdapter.setOnItemClickListener(position -> {
-            
+
         });
 
         recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
