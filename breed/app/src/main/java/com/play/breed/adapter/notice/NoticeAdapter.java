@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.play.breed.R;
 import com.play.breed.bean.notice.NoticeBean;
@@ -38,11 +37,6 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
         final NoticeBean data = datas.get(position);
         if (data == null) return;
 
-//        holder.tv_title.setText(data.getTitle());
-//        holder.tv_content.setText(data.getContent());
-//        holder.tv_time.setText(data.getTime());
-
-
 
         if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener(v -> mOnItemClickListener.onClick(position));
@@ -70,14 +64,8 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_title,tv_content,tv_time;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            tv_title = itemView.findViewById(R.id.tv_title);
-            tv_content = itemView.findViewById(R.id.tv_content);
-            tv_time = itemView.findViewById(R.id.tv_time);
 
         }
     }

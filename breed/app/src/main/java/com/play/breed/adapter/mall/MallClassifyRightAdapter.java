@@ -6,19 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.play.breed.R;
-import com.play.breed.bean.mall.MallHomeClassifyBean;
+import com.play.breed.bean.mall.MallClassifyRightBean;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MallHomeClassifyAdapter extends RecyclerView.Adapter<MallHomeClassifyAdapter.ViewHolder> {
+public class MallClassifyRightAdapter extends RecyclerView.Adapter<MallClassifyRightAdapter.ViewHolder> {
 
     Context mContext;
-    List<MallHomeClassifyBean> datas;
+    List<MallClassifyRightBean> datas;
 
-    public MallHomeClassifyAdapter(Context context, List<MallHomeClassifyBean> datas) {
+    public MallClassifyRightAdapter(Context context, List<MallClassifyRightBean> datas) {
         mContext = context;
         this.datas = datas;
     }
@@ -27,14 +27,14 @@ public class MallHomeClassifyAdapter extends RecyclerView.Adapter<MallHomeClassi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view = LayoutInflater.from(mContext).inflate(R.layout.item_mall_classify_right, parent, false);
+        view = LayoutInflater.from(mContext).inflate(R.layout.item_mall_home_classify, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if (holder == null) return;
-        final MallHomeClassifyBean data = datas.get(position);
+        final MallClassifyRightBean data = datas.get(position);
         if (data == null) return;
 
 
@@ -48,17 +48,17 @@ public class MallHomeClassifyAdapter extends RecyclerView.Adapter<MallHomeClassi
         return datas.size();
     }
 
-    public void setData(List<MallHomeClassifyBean> datas) {
+    public void setData(List<MallClassifyRightBean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
 
-    public void addData(List<MallHomeClassifyBean> datas){
+    public void addData(List<MallClassifyRightBean> datas){
         this.datas.addAll(datas);
         notifyDataSetChanged();
     }
 
-    public List<MallHomeClassifyBean> getData() {
+    public List<MallClassifyRightBean> getData() {
         return this.datas;
     }
 
