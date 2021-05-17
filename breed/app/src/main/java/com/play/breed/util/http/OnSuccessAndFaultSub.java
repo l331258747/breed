@@ -1,16 +1,14 @@
 package com.play.breed.util.http;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.play.breed.dialog.DialogUtil;
 import com.play.breed.base.ActivityCollect;
 import com.play.breed.bean.BaseResponse;
 import com.play.breed.bean.MySelfInfo;
-import com.play.breed.util.HasActivity;
+import com.play.breed.dialog.DialogUtil;
 import com.play.breed.util.dialog.LoadingDialog;
 import com.play.breed.util.log.LogUtil;
 import com.play.breed.view.login.LoginActivity;
@@ -73,10 +71,14 @@ public class OnSuccessAndFaultSub extends DisposableObserver<BaseResponse> imple
     }
 
     private void dismissProgressDialog() {
-        if (!HasActivity.isDestroy((Activity) context)) {
-            if (showProgress && null != progressDialog) {
-                progressDialog.dismiss();
-            }
+//        if (!HasActivity.isDestroy((Activity) context)) {
+//            if (showProgress && null != progressDialog) {
+//                progressDialog.dismiss();
+//            }
+//        }
+
+        if (showProgress && null != progressDialog) {
+            progressDialog.dismiss();
         }
     }
 
@@ -104,7 +106,7 @@ public class OnSuccessAndFaultSub extends DisposableObserver<BaseResponse> imple
         LogUtil.e("msg:" + t.getMsg());
         LogUtil.e("data:" + t.getData());
 
-        if (t.getCode() == 0) {
+        if (t.getCode() == 200) {
             mResponseCallback.onSuccess(t.getData());
         } else {
             if (!TextUtils.isEmpty(t.getMsg())) {

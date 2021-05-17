@@ -9,8 +9,13 @@ import android.widget.TextView;
 
 import com.play.breed.R;
 import com.play.breed.base.BaseActivity;
+import com.play.breed.bean.EmptyModel;
+import com.play.breed.mvp.login.RegisterContract;
+import com.play.breed.mvp.login.RegisterPresenter;
 import com.play.breed.util.LoginUtil;
 import com.play.breed.util.StringUtils;
+import com.play.breed.util.rxbus.RxBus2;
+import com.play.breed.util.rxbus.busEvent.RegisterEvent;
 import com.play.breed.view.web.WebTextActivity;
 
 import java.util.concurrent.TimeUnit;
@@ -21,13 +26,15 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener {
+public class RegisterActivity extends BaseActivity implements View.OnClickListener, RegisterContract.View {
 
     EditText et_account,et_password,et_verify,et_recommend;
     TextView tv_verify_code,tv_agreement,tv_btn;
     ImageView iv_check;
 
     boolean isCheck = false;
+
+    RegisterPresenter mPresenter;
 
     @Override
     public int getLayoutId() {
@@ -60,7 +67,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void initData() {
-
+        mPresenter = new RegisterPresenter(context,this);
 
 
     }
@@ -71,8 +78,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             case R.id.tv_verify_code:
                 if (!LoginUtil.verifyPhone(et_account.getText().toString()))
                     return;
+
+                mPresenter.verifyCode(et_account.getText().toString());
                 verifyEvent();
-                //TODO 发送验证码
+
                 break;
             case R.id.tv_agreement:
                 intent = new Intent(context, WebTextActivity.class);
@@ -86,8 +95,17 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     return;
                 if (!LoginUtil.verifyPassword(et_password.getText().toString()))
                     return;
+//                if (!LoginUtil.verifyEmpty(et_recommend.getText().toString(), "请输入邀请码"))
+//                    return;
+                if(!isCheck){
+                    showShortToast("请勾选隐私协议");
+                    return;
+                }
 
-                //TODO 注册
+                mPresenter.register(et_account.getText().toString(),
+                        et_password.getText().toString(),
+                        et_verify.getText().toString(),
+                        et_recommend.getText().toString());
 
                 break;
             case R.id.iv_check:
@@ -132,5 +150,27 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         tv_verify_code.setTextColor(ContextCompat.getColor(context, R.color.white));
                     }
                 });
+    }
+
+    @Override
+    public void registerSuccess(EmptyModel data) {
+        RxBus2.getInstance().post(new RegisterEvent(et_account.getText().toString()));
+        finish();
+    }
+
+    @Override
+    public void registerFailed(String msg) {
+        showShortToast(msg);
+    }
+
+    @Override
+    public void verifyCodeSuccess(EmptyModel data) {
+        showShortToast("手机验证码发送成功");
+        et_verify.setText("123456");
+    }
+
+    @Override
+    public void verifyCodeFailed(String msg) {
+        showShortToast(msg);
     }
 }

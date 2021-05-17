@@ -5,6 +5,8 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.Map;
 
+import io.reactivex.Observable;
+import io.reactivex.observers.DisposableObserver;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -17,6 +19,31 @@ import okhttp3.RequestBody;
 
 public class MethodApi {
 
+    //==============登录   start
+    //登录
+    public static void login(Map<String, String> params, DisposableObserver subscriber) {
+        Observable observable = HttpMethods.getInstance().getHttpService().login(getRequestBody(params)); //在HttpServer中
+        HttpMethods.getInstance().toSubscribe(observable, subscriber);
+    }
+
+    //注册
+    public static void register(Map<String, String> params, DisposableObserver subscriber) {
+        Observable observable = HttpMethods.getInstance().getHttpService().register(getRequestBody(params)); //在HttpServer中
+        HttpMethods.getInstance().toSubscribe(observable, subscriber);
+    }
+
+    //用户找回密码
+    public static void forget(Map<String, String> params, DisposableObserver subscriber) {
+        Observable observable = HttpMethods.getInstance().getHttpService().forget(getRequestBody(params)); //在HttpServer中
+        HttpMethods.getInstance().toSubscribe(observable, subscriber);
+    }
+
+    //验证码
+    public static void verifyCode(Map<String, String> params, DisposableObserver subscriber) {
+        Observable observable = HttpMethods.getInstance().getHttpService().verifyCode(getRequestBody(params)); //在HttpServer中
+        HttpMethods.getInstance().toSubscribe(observable, subscriber);
+    }
+    //==============登录   end
 
     private static RequestBody getRequestBody(Map<String, String> params) {
         RequestBody requestBody = RequestBody.create(MediaType.parse("Content-Type, application/json"),

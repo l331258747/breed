@@ -18,9 +18,9 @@ import io.reactivex.disposables.Disposable;
 
 public class AuthenticationActivity extends BaseActivity {
 
-    EditText et_real_name, et_code;
-    View view_address;
-    TextView tv_address, btn_submit;
+    EditText et_real_name, et_code,et_address_detail;
+    View view_address,view_sex,view_pic,view_validity,view_occupation;
+    TextView tv_address, tv_sex ,tv_validity,tv_occupation,tv_pic,btn_submit;
 
     PickerCityHelp mPickerCityHelp;
 
@@ -37,8 +37,20 @@ public class AuthenticationActivity extends BaseActivity {
 
         et_real_name = $(R.id.et_real_name);
         et_code = $(R.id.et_code);
+        et_address_detail = $(R.id.et_address_detail);
+
         view_address = $(R.id.view_address);
+        view_sex = $(R.id.view_sex);
+        view_pic = $(R.id.view_pic);
+        view_validity = $(R.id.view_validity);
+        view_occupation = $(R.id.view_occupation);
+
         tv_address = $(R.id.tv_address);
+        tv_sex = $(R.id.tv_sex);
+        tv_validity = $(R.id.tv_validity);
+        tv_occupation = $(R.id.tv_occupation);
+        tv_pic = $(R.id.tv_pic);
+
         btn_submit = $(R.id.btn_submit);
 
         btn_submit.setOnClickListener(v -> {

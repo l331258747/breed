@@ -9,13 +9,23 @@ import com.play.breed.R;
 import com.play.breed.base.BaseActivity;
 import com.play.breed.bean.MySelfInfo;
 import com.play.breed.bean.login.LoginBean;
+import com.play.breed.mvp.login.LoginContract;
+import com.play.breed.mvp.login.LoginPresenter;
 import com.play.breed.util.LoginUtil;
+import com.play.breed.util.rxbus.RxBus2;
+import com.play.breed.util.rxbus.busEvent.RegisterEvent;
 import com.play.breed.view.home.HomeActivity;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener {
+import io.reactivex.disposables.Disposable;
+
+public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginContract.View {
 
     EditText et_account, et_password;
     TextView tv_btn, tv_register, tv_forget;
+
+    LoginPresenter mPresenter;
+
+    Disposable disposable;
 
     @Override
     public int getLayoutId() {
@@ -39,13 +49,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         setDebug();
     }
 
-    public void setDebug(){
+    public void setDebug() {
         et_account.setText("13212615202");
         et_password.setText("123456");
     }
 
     @Override
     public void initData() {
+        mPresenter = new LoginPresenter(context, this);
+
+        disposable = RxBus2.getInstance().toObservable(RegisterEvent.class, registerEvent -> {
+            et_account.setText(registerEvent.getUserName());
+        });
     }
 
     @Override
@@ -58,20 +73,33 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 if (!LoginUtil.verifyPassword(et_password.getText().toString()))
                     return;
 
-                LoginBean data = new LoginBean();
-                data.setToken("token");
-                data.setUserId("123");
+                mPresenter.login(et_account.getText().toString(), et_password.getText().toString());
 
-                MySelfInfo.getInstance().setLoginData(data, et_account.getText().toString());
-                finish();
-                startActivity(new Intent(context, HomeActivity.class));
                 break;
-            case R.id.tv_register:
-                startActivity(new Intent(context, RegisterActivity.class));
-                break;
-            case R.id.tv_forget:
-                startActivity(new Intent(context, ForgetActivity.class));
-                break;
+            case R.id.tv_register: {
+                Intent intent = new Intent(context, RegisterActivity.class);
+                intent.putExtra("mobile", et_account.getText().toString());
+                startActivity(intent);
+            }
+            break;
+            case R.id.tv_forget: {
+                Intent intent = new Intent(context, ForgetActivity.class);
+                intent.putExtra("mobile", et_account.getText().toString());
+                startActivity(intent);
+            }
+            break;
         }
+    }
+
+    @Override
+    public void loginSuccess(LoginBean data) {
+        MySelfInfo.getInstance().setLoginData(data, et_account.getText().toString());
+        finish();
+        startActivity(new Intent(context, HomeActivity.class));
+    }
+
+    @Override
+    public void loginFailed(String msg) {
+        showShortToast(msg);
     }
 }

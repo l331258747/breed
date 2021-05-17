@@ -18,6 +18,6 @@ public class URLConstant {
 //        }
 //        return "https://api.zqlc.net.cn/";
 //        return "http://180.101.185.20:38080/";
-        return "http://106.55.24.39:80/";
+        return "http://192.168.1.204:8288/";
     }
 }

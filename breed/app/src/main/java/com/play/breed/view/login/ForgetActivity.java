@@ -7,8 +7,13 @@ import android.widget.TextView;
 
 import com.play.breed.R;
 import com.play.breed.base.BaseActivity;
+import com.play.breed.bean.EmptyModel;
+import com.play.breed.mvp.login.ForgetContract;
+import com.play.breed.mvp.login.ForgetPresenter;
 import com.play.breed.util.LoginUtil;
 import com.play.breed.util.StringUtils;
+import com.play.breed.util.rxbus.RxBus2;
+import com.play.breed.util.rxbus.busEvent.RegisterEvent;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,10 +23,12 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
-public class ForgetActivity extends BaseActivity implements View.OnClickListener {
+public class ForgetActivity extends BaseActivity implements View.OnClickListener, ForgetContract.View {
 
     EditText et_account,et_verify,et_password,et_password2;
     TextView tv_verify_code,tv_btn;
+
+    ForgetPresenter mPresenter;
 
     @Override
     public int getLayoutId() {
@@ -50,7 +57,7 @@ public class ForgetActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     public void initData() {
-
+        mPresenter = new ForgetPresenter(context,this);
     }
 
     @Override
@@ -60,7 +67,8 @@ public class ForgetActivity extends BaseActivity implements View.OnClickListener
                 if (!LoginUtil.verifyPhone(et_account.getText().toString()))
                     return;
                 verifyEvent();
-                //TODO 发送验证码
+
+                mPresenter.verifyCode(et_account.getText().toString());
                 break;
             case R.id.tv_btn:
                 if (!LoginUtil.verifyPhone(et_account.getText().toString()))
@@ -69,8 +77,14 @@ public class ForgetActivity extends BaseActivity implements View.OnClickListener
                     return;
                 if (!LoginUtil.verifyPassword(et_password.getText().toString()))
                     return;
+                if (!LoginUtil.verifyPassword(et_password2.getText().toString()))
+                    return;
+                if (!LoginUtil.verifyPasswordDouble(et_password.getText().toString(), et_password2.getText().toString()))
+                    return;
 
-                //TODO 确定
+                mPresenter.forget(et_account.getText().toString(),
+                        et_password.getText().toString(),
+                        et_verify.getText().toString());
 
                 break;
         }
@@ -111,5 +125,27 @@ public class ForgetActivity extends BaseActivity implements View.OnClickListener
                         tv_verify_code.setTextColor(ContextCompat.getColor(context, R.color.white));
                     }
                 });
+    }
+
+    @Override
+    public void forgetSuccess(EmptyModel data) {
+        RxBus2.getInstance().post(new RegisterEvent(et_account.getText().toString()));
+        finish();
+    }
+
+    @Override
+    public void forgetFailed(String msg) {
+        showShortToast(msg);
+    }
+
+    @Override
+    public void verifyCodeSuccess(EmptyModel data) {
+        showShortToast("手机验证码发送成功");
+        et_verify.setText("123456");
+    }
+
+    @Override
+    public void verifyCodeFailed(String msg) {
+        showShortToast(msg);
     }
 }

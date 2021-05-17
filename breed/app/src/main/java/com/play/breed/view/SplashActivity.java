@@ -78,7 +78,6 @@ public class SplashActivity extends BaseActivity {
 
         if (MySelfInfo.getInstance().isLogin()) {
             startActivity(new Intent(context, HomeActivity.class));
-            finish();
         } else {
             startActivity(new Intent(context, LoginActivity.class));
         }
